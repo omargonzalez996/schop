@@ -1,29 +1,37 @@
 import { Grid, Box } from '@mui/material'
-import prods from '../../products.json'
+import { prods } from '../../products';
+import { useEffect } from 'react'
 function Products() {
+
+    useEffect(() => {
+        console.log(prods);
+    }), []
+
     return (
         <>
-            <div className="grid-container">
-                <Grid container spacing={2}>
+            <Grid container spacing={2} className="grid-container">
+                {prods.map((prod) => (
                     <Grid item xs={12} sm={6} md={4} lg={3}>
-                        <Box border={2}>GNZ</Box>
+                        <Box border={2} className='product-container'>
+                            <div className='product-info'>
+                                <div className='product-title'>
+                                    <p>{prod.nombre}</p>
+                                </div>
+                                <div className='product-desc'>
+                                    <p>{prod.descripcion}</p>
+                                </div>
+                                <div className='product-price'>
+                                    <p>{prod.precio}</p>
+                                </div>
+                            </div>
+                        </Box>
                     </Grid>
-                    <Grid item xs={12} sm={6} md={4} lg={3}>
-                        <Box border={2}>GNZ</Box>
-                    </Grid>
-                    <Grid item xs={12} sm={6} md={4} lg={3}>
-                        <Box border={2}>GNZ</Box>
-                    </Grid>
-                    <Grid item xs={12} sm={6} md={4} lg={3}>
-                        <Box border={2}>GNZ</Box>
-                    </Grid>
-                    <Grid item xs={12} sm={6} md={4} lg={3}>
-                        <Box border={2}>GNZ</Box>
-                    </Grid>
-                </Grid>
-            </div>
+                ))}
+            </Grid>
         </>
     )
 }
 
 export default Products
+
+
