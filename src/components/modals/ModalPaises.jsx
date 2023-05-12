@@ -7,7 +7,7 @@ function ModalPaises({ open, setOpen }) {
             onClose={() => setOpen(false)}
             aria-labelledby='Países'
         >
-            <Box>
+            <Box className='Modal-Box'>
                 <Button onClick={() => setOpen(false)}>Cerrar Modal</Button>
             </Box>
         </Modal>
