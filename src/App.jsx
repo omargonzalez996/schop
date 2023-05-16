@@ -1,13 +1,19 @@
+import { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import Menu from './components/Menu'
-function App() {
+import CrudPaises from './components/modals/CrudlPaises';
 
+function App() {
+  const [buttonActive, setButtonActive] = useState();
   return (
     <>
       <div className='app-container'>
         <Header />
-        <Menu />
+        <Menu buttonActive={buttonActive} setButtonActive={setButtonActive} />
+        <div className='crud-container'>
+          {buttonActive === 1 ? <CrudPaises /> : null}
+        </div>
       </div>
     </>
   )
